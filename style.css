@@ -1,0 +1,201 @@
+/* Custom Styles for a Two-Color Professional Theme (Blue and Orange) */
+        :root {
+            --primary-color: #3b82f6; /* Tailwind Blue 500 */
+            --accent-color: #f97316;  /* Tailwind Orange 500 */
+            --bg-dark: #0f172a; /* Slate 900 */
+            --text-light: #f1f5f9; /* Slate 100 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Hero Gradient Background - Using only the two accents */
+        .hero-background {
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.2) 0%, transparent 50%);
+            background-color: var(--bg-dark);
+        }
+
+        /* Glowing Border Effect for Cards (Projects) */
+        .glow-card {
+            position: relative;
+            background: #1e293b; /* Slate 800 */
+            overflow: hidden;
+            /* Add transitions for smooth hover effect */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            cursor: pointer;
+        }
+
+        /* Hover effect: lift the card */
+        .glow-card:hover {
+            transform: translateY(-5px);
+            /* New, more pronounced shadow on hover */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.2), 0 0 15px rgba(59, 130, 246, 0.5); 
+        }
+
+        .glow-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                var(--primary-color),
+                var(--accent-color),
+                var(--primary-color)
+            );
+            animation: rotate 8s linear infinite;
+            z-index: 0;
+            opacity: 0.3;
+            transition: opacity 0.3s ease-out; /* Add transition for hover opacity */
+        }
+
+        /* Hover effect: make the glow border more intense and pulsate */
+        .glow-card:hover::before {
+            opacity: 0.6;
+            animation: rotate 8s linear infinite, glowPulse 1.5s infinite alternate;
+        }
+        
+        @keyframes glowPulse {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2); }
+        }
+
+        .glow-card-content {
+            position: relative;
+            z-index: 10;
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            height: 100%;
+            /* Ensure text inside the content block doesn't move when the card lifts */
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Magnetic Button Effect */
+        .magnetic-btn {
+            transition: all 0.1s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        /* Animated Skill Bars (Initial State) */
+        .skill-bar {
+            width: 0;
+            transition: width 1s ease-out;
+        }
+
+        /* Technology Stack Tags Styling */
+        .tech-tag {
+            background-color: #1e293b; /* Slate 800 */
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: default;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-tag:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -4px rgba(59, 130, 246, 0.3);
+        }
+
+        /* New CSS for Career Ambition Box Hover Effect */
+        .ambition-box {
+            position: relative;
+            /* Inherit base styles from Tailwind classes: p-6 bg-slate-800 rounded-xl shadow-2xl */
+            transition: background-color 0.4s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.4s ease-in-out;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .ambition-box:hover {
+            transform: scale(1.02); /* Slight lift */
+            /* Invert the background slightly and add a contrasting shadow */
+            background-color: #111827; /* Slate 900 for a darker contrast */
+            box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.5), 0 0 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .ambition-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            pointer-events: none;
+        }
+
+        .ambition-box:hover::after {
+            opacity: 1; /* Flash of color on hover */
+        }
+        
+        /* Certification Card Hover Animation (NEW) */
+        .cert-card {
+            position: relative;
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #1e293b; /* Base border: Slate 800 */
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color); /* Blue border on hover */
+            box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.3), 0 0 10px rgba(59, 130, 246, 0.2);
+            background-color: #111827; /* Slightly darker background on hover */
+        }
+
+        /* Subtle ripple/shine effect on hover */
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s ease-in-out;
+            pointer-events: none;
+        }
+
+        .cert-card:hover::before {
+            left: 100%;
+        }
+
+        /* Custom Scrollbar for style */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+        
+        /* Leadership Card Style (Reusing cert-card animation style) */
+        .leadership-card {
+            transition: all 0.3s ease-in-out;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .leadership-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.3);
+            border-left-color: var(--primary-color);
+        }

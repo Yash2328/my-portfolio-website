@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash Shirdhone | Data Analyst & Web Developer Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Load GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="selection:bg-orange-400 selection:text-gray-900">
+
+    <!-- Message Box for non-alert messages -->
+    <div id="message-box" class="hidden fixed top-4 right-4 bg-slate-700 text-white p-4 rounded-lg shadow-xl z-[100] transition duration-300">
+        <p id="message-text" class="text-sm font-medium"></p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-sm shadow-xl">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-orange-400">Yash Shirdhone</a>
+            <div id="nav-links" class="hidden md:flex space-x-8 font-medium">
+                <!-- Hover Orange -->
+                <a href="#about" class="hover:text-orange-400 transition">About</a>
+                <!-- Hover Blue -->
+                <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+                <!-- Hover Orange -->
+                <a href="#projects" class="hover:text-orange-400 transition">Projects</a>
+                <!-- Hover Blue -->
+                <a href="#education" class="hover:text-blue-400 transition">Education</a>
+                <!-- Hover Orange -->
+                <a href="#certifications" class="hover:text-orange-400 transition">Certifications</a>
+                <!-- Hover Blue (Contact is the last link) -->
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-slate-700 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer (Hidden by default) -->
+    <div id="mobile-menu-drawer" class="fixed inset-0 z-40 bg-slate-900/95 backdrop-blur-md flex flex-col items-center justify-center space-y-8 hidden md:hidden">
+        <button id="close-menu-btn" class="absolute top-6 right-6 p-2 rounded-md hover:bg-slate-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <a href="#about" class="text-3xl font-bold hover:text-orange-400 transition mobile-nav-item">About</a>
+        <a href="#skills" class="text-3xl font-bold hover:text-blue-400 transition mobile-nav-item">Skills</a>
+        <a href="#projects" class="text-3xl font-bold hover:text-orange-400 transition mobile-nav-item">Projects</a>
+        <a href="#education" class="text-3xl font-bold hover:text-blue-400 transition mobile-nav-item">Education</a>
+        <a href="#certifications" class="text-3xl font-bold hover:text-orange-400 transition mobile-nav-item">Certifications</a>
+        <!-- Keeping the button style for better visibility in the mobile drawer -->
+        <a href="#contact" class="text-3xl font-bold magnetic-btn text-white bg-blue-500 px-6 py-3 rounded-xl hover:bg-blue-600 transition duration-300 shadow-xl mobile-nav-item">Contact</a>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-6">
+
+        <!-- 1. Hero Section -->
+        <section id="home" class="hero-background min-h-screen flex items-center justify-center text-center pt-24 pb-12">
+            <div class="space-y-8 max-w-4xl">
+                <div class="flex justify-center anim-reveal">
+                    <!-- Data Analytics Symbol (trending-up) -->
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center shadow-2xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up text-white"><polyline points="22 7 13 16 9 12 2 19"/><path d="M18 7h4v4"/></svg>
+                    </div>
+                </div>
+
+                <h1 class="text-6xl sm:text-7xl font-extrabold leading-tight anim-reveal">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-blue-400 to-orange-400 inline-block">YASH SHIRDHONE</span>
+                </h1>
+                <p class="text-xl sm:text-2xl text-slate-300 font-light max-w-3xl mx-auto anim-reveal">
+                    Data Analyst, AI Automation Specialist & Software Developer — Committed to turning data into actionable business intelligence.
+                </p>
+                <div class="flex justify-center space-x-4 pt-4 anim-reveal">
+                    <!-- Download Resume Button -->
+                    <a href="/yash_shirdhone_9158231595_resume copy.pdf" download="yash_shirdhone_9158231595_resume.pdf" class="magnetic-btn text-lg px-8 py-3 rounded-full font-semibold bg-blue-600 hover:bg-blue-700 transition shadow-lg shadow-blue-500/50 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text mr-2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="py-20">
+            <h2 class="text-4xl font-bold mb-12 text-center anim-reveal">
+                About <span class="text-orange-400">Me</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 anim-reveal">
+                    <p class="text-lg text-slate-300">
+                        I am a dedicated Data Analyst and Software Developer skilled in leveraging modern technologies to drive data-driven decision-making. My expertise spans Python for data manipulation, SQL for robust extraction, and Power BI/Tableau for insightful visualizations.
+                    </p>
+                    <p class="text-lg text-slate-300">
+                        I thrive in environments where analytical thinking meets technical execution, focusing on delivering high-quality analytical solutions and optimizing business performance through clear KPIs and detailed trend analysis.
+                    </p>
+                </div>
+                <!-- Career Ambition Box - Added ambition-box class -->
+                <div class="ambition-box p-6 bg-slate-800 rounded-xl shadow-2xl anim-reveal">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-4">Career Ambitions</h3>
+                    <ul class="space-y-3 text-slate-300 list-disc pl-5">
+                        <li>Mastering advanced ML/AI models for predictive analytics.</li>
+                        <li>Building robust, scalable ETL pipelines in cloud environments (AWS/Azure).</li>
+                        <li>Driving business strategy through clear, impactful BI reporting.</li>
+                        <li>Contributing to open-source data science tools.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Skills Section (Animated Chart/Infographic) -->
+        <section id="skills" class="py-20">
+            <h2 class="text-4xl font-bold mb-12 text-center anim-reveal">
+                Technical <span class="text-blue-400">Expertise</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6 anim-reveal">
+                    <h3 class="text-2xl font-semibold text-orange-400 mb-4">Core Skills Proficiency</h3>
+
+                    <!-- Skill Bar Items -->
+                    <div class="space-y-4">
+                        <!-- Skill 1: Python & SQL -> 90% -->
+                        <div data-skill-level="90">
+                            <p class="flex justify-between items-center text-sm font-medium">
+                                <span>Python & SQL</span>
+                                <span class="skill-percent">0%</span>
+                            </p>
+                            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                <div class="skill-bar h-2.5 rounded-full" style="background-color: var(--primary-color);"></div>
+                            </div>
+                        </div>
+                        <!-- Skill 2: Power BI & Data Visualization (DAX) -> 85% -->
+                        <div data-skill-level="85">
+                            <p class="flex justify-between items-center text-sm font-medium">
+                                <span>Power BI & Data Visualization (DAX)</span>
+                                <span class="skill-percent">0%</span>
+                            </p>
+                            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                <div class="skill-bar h-2.5 rounded-full" style="background-color: var(--accent-color);"></div>
+                            </div>
+                        </div>
+                        <!-- Skill 3: Machine Learning & Analytics -> 80% -->
+                        <div data-skill-level="80">
+                            <p class="flex justify-between items-center text-sm font-medium">
+                                <span>Machine Learning & Analytics</span>
+                            <span class="skill-percent">0%</span>
+                            </p>
+                            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                <div class="skill-bar h-2.5 rounded-full" style="background-color: var(--primary-color);"></div>
+                            </div>
+                        </div>
+                        <!-- Skill 4: Database Management (MySQL, MongoDB) -> 90% -->
+                        <div data-skill-level="90">
+                            <p class="flex justify-between items-center text-sm font-medium">
+                                <span>Database Management (MySQL, MongoDB)</span>
+                                <span class="skill-percent">0%</span>
+                            </p>
+                            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                <div class="skill-bar h-2.5 rounded-full" style="background-color: var(--accent-color);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Stack Refined & Animated -->
+                <div class="anim-reveal">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-4">Technology Stack</h3>
+                    <!-- Use a grid layout for better structure on desktop -->
+                    <div id="tech-stack-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <!-- Blue-themed tags -->
+                        <div class="tech-tag border-l-4 border-blue-500 hover:shadow-blue-500/50">Python</div>
+                        <div class="tech-tag border-l-4 border-orange-500 hover:shadow-orange-500/50">SQL</div>
+                        <div class="tech-tag border-l-4 border-blue-500 hover:shadow-blue-500/50">Power BI</div>
+                        <div class="tech-tag border-l-4 border-orange-500 hover:shadow-orange-500/50">BigQuery</div>
+                        <div class="tech-tag border-l-4 border-blue-500 hover:shadow-blue-500/50">AWS (S3, EC2)</div>
+                        <div class="tech-tag border-l-4 border-orange-500 hover:shadow-orange-500/50">Machine Learning</div>
+                        <div class="tech-tag border-l-4 border-blue-500 hover:shadow-blue-500/50">MongoDB</div>
+                        <div class="tech-tag border-l-4 border-orange-500 hover:shadow-orange-500/50">Git & GitHub</div>
+                        <div class="tech-tag border-l-4 border-blue-500 hover:shadow-blue-500/50">Prompt Engineering</div>
+                        <div class="tech-tag border-l-4 border-orange-500 hover:shadow-orange-500/50">HTML/CSS/JS</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Projects Section -->
+        <section id="projects" class="py-20">
+            <h2 class="text-4xl font-bold mb-12 text-center anim-reveal">
+                Featured <span class="text-orange-400">Projects</span>
+            </h2>
+
+            <!-- Added ID for GSAP targeting -->
+            <div id="project-cards-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Project 1: InsightShield (Uses .glow-card for hover animation) -->
+                <div class="glow-card project-card rounded-xl shadow-2xl anim-reveal">
+                    <div class="glow-card-content">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-2">InsightShield</h3>
+                        <p class="text-sm text-slate-400 mb-4">Insurance Analytics Dashboard</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-blue-900 text-blue-300">Python</span>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-orange-900 text-orange-300">SQL</span>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-blue-900 text-blue-300">Power BI</span>
+                        </div>
+                        <p class="text-slate-300 mb-4">
+                            Developed a comprehensive dashboard to monitor insurance claims, customer behavior, and risk patterns.
+                        </p>
+                        <h4 class="font-semibold text-sm text-orange-400 mb-2">Key Outcomes:</h4>
+                        <ul class="text-sm text-slate-300 space-y-1 list-disc pl-5">
+                            <li>Extracted and cleaned large datasets using SQL and Power Query.</li>
+                            <li>Identified claims trends for performance optimization.</li>
+                            <li>Visualized KPIs for executive decision-making.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 2: InsightBI (Uses .glow-card for hover animation) -->
+                <div class="glow-card project-card rounded-xl shadow-2xl anim-reveal">
+                    <div class="glow-card-content">
+                        <h3 class="text-2xl font-bold text-orange-400 mb-2">InsightBI</h3>
+                        <p class="text-sm text-slate-400 mb-4">Business Performance Dashboard</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-blue-900 text-blue-300">Power BI</span>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-orange-900 text-orange-300">SQL</span>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-blue-900 text-blue-300">DAX</span>
+                        </div>
+                        <p class="text-slate-300 mb-4">
+                            Designed an executive BI dashboard focused on monitoring critical business trends and metrics.
+                        </p>
+                        <h4 class="font-semibold text-sm text-blue-400 mb-2">Key Outcomes:</h4>
+                        <ul class="text-sm text-slate-300 space-y-1 list-disc pl-5">
+                            <li>Structured complex business data using SQL and Excel.</li>
+                            <li>Created custom DAX measures for precise executive reporting.</li>
+                            <li>Provided clear views for trend analysis and growth identification.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 3: Webfolio (Uses .glow-card for hover animation) -->
+                <div class="glow-card project-card rounded-xl shadow-2xl anim-reveal">
+                    <div class="glow-card-content">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Webfolio</h3>
+                        <p class="text-sm text-slate-400 mb-4">Personal Portfolio Website</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-orange-900 text-orange-300">HTML</span>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-blue-900 text-blue-300">CSS</span>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-orange-900 text-orange-300">UI/UX Design</span>
+                        </div>
+                        <p class="text-slate-300 mb-4">
+                            Developed a responsive, cross-device compatible personal portfolio to showcase my skills and projects (similar to this one!).
+                        </p>
+                        <h4 class="font-semibold text-sm text-orange-400 mb-2">Key Outcomes:</h4>
+                        <ul class="text-sm text-slate-300 space-y-1 list-disc pl-5">
+                            <li>Focused on intuitive UI/UX design principles.</li>
+                            <li>Ensured smooth, functional cross-device navigation.</li>
+                            <li>Practiced front-end development standards.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Education Section (Modified) -->
+        <section id="education" class="py-20">
+            <h2 class="text-4xl font-bold mb-12 text-center anim-reveal">
+                My <span class="text-blue-400">Education</span>
+            </h2>
+            <!-- Changed grid to 3 columns and increased max-w for better spacing -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Education Item 1: BE -->
+                <div class="p-6 bg-slate-800 rounded-xl shadow-2xl anim-reveal hover:ring-2 ring-blue-500 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-orange-400 mb-1">Bachelors of Engineering</h3>
+                    <p class="text-slate-300 mb-2">Information Technology</p>
+                    <p class="text-sm text-slate-400 mb-4">Savitribai Phule Pune University</p>
+                    <p class="text-lg font-medium text-blue-400">CGPA: 7.05</p>
+                </div>
+                <!-- Education Item 2: HSC (Class XII) -->
+                <div class="p-6 bg-slate-800 rounded-xl shadow-2xl anim-reveal hover:ring-2 ring-orange-500 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-1">HSC (Class XII)</h3>
+                    <p class="text-slate-300 mb-2">Science Stream</p>
+                    <p class="text-sm text-slate-400 mb-4">S.M.V. School, Akluj</p>
+                    <p class="text-lg font-medium text-orange-400">Aggregate: 88%</p>
+                </div>
+                <!-- Education Item 3: SSC (Class X) - NEW -->
+                <div class="p-6 bg-slate-800 rounded-xl shadow-2xl anim-reveal hover:ring-2 ring-blue-500 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-orange-400 mb-1">SSC (Class X)</h3>
+                    <p class="text-slate-300 mb-2">Primary School</p>
+                    <p class="text-sm text-slate-400 mb-4">S.M.V. School, Akluj</p>
+                    <p class="text-lg font-medium text-blue-400">Aggregate: 85%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Certifications Section (New Section) -->
+        <section id="certifications" class="py-20">
+            <h2 class="text-4xl font-bold mb-12 text-center anim-reveal">
+                Key <span class="text-orange-400">Certifications</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Added cert-card class for animation -->
+                <div class="cert-card p-5 bg-slate-800 rounded-xl shadow-lg anim-reveal">
+                    <h4 class="font-bold text-blue-400">Selenium with Java</h4>
+                    <p class="text-sm text-slate-400">Udemy</p>
+                </div>
+                <!-- Added cert-card class for animation -->
+                <div class="cert-card p-5 bg-slate-800 rounded-xl shadow-lg anim-reveal">
+                    <h4 class="font-bold text-orange-400">SQL</h4>
+                    <p class="text-sm text-slate-400">Udemy</p>
+                </div>
+                <!-- Added cert-card class for animation -->
+                <div class="cert-card p-5 bg-slate-800 rounded-xl shadow-lg anim-reveal">
+                    <h4 class="font-bold text-blue-400">Foundation of Cybersecurity</h4>
+                    <p class="text-sm text-slate-400">Coursera</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Interests & Leadership Section (NEW) -->
+        <section id="interests" class="py-20">
+            <h2 class="text-4xl font-bold mb-12 text-center anim-reveal">
+                Leadership & <span class="text-blue-400">Interests</span>
+            </h2>
+
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+
+                <!-- Leadership Roles -->
+                <div class="space-y-6 anim-reveal">
+                    <h3 class="text-2xl font-semibold text-orange-400 mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round mr-2"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-1.7-1.3-3-3-3H9"/></svg>
+                        Leadership & Extracurriculars
+                    </h3>
+                    <div class="space-y-4">
+                        <!-- Role 1: Rotaract Club -->
+                        <div class="leadership-card p-4 bg-slate-800 rounded-xl shadow-lg">
+                            <p class="font-medium text-slate-200">Club Service Member</p>
+                            <p class="text-sm text-slate-400">Rotaract Club of PESMCOE IT (RIY 2022-23)</p>
+                        </div>
+                        <!-- Role 2: NSS Design Team -->
+                        <div class="leadership-card p-4 bg-slate-800 rounded-xl shadow-lg">
+                            <p class="font-medium text-slate-200">Design Team Member (Volunteer)</p>
+                            <p class="text-sm text-slate-400">NSS (Year 2023-2024)</p>
+                        </div>
+                        <!-- Role 3: GDSC Coordinator -->
+                        <div class="leadership-card p-4 bg-slate-800 rounded-xl shadow-lg">
+                            <p class="font-medium text-slate-200">Event Coordinator</p>
+                            <p class="text-sm text-slate-400">Google Developer Student Club PESMCOE</p>
+                        </div>
+                        <!-- Role 4: IGNITE Design Lead -->
+                        <div class="leadership-card p-4 bg-slate-800 rounded-xl shadow-lg">
+                            <p class="font-medium text-slate-200">Design Lead</p>
+                            <p class="text-sm text-slate-400">IGNITE Departmental Club</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Interests -->
+                <div class="space-y-6 anim-reveal">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake mr-2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5L7 10"/><path d="M21 15h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v-4Z"/></svg>
+                        Professional Interests
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <!-- Interest 1: UI/UX Design (Canva) -->
+                        <span class="tech-tag border-l-4 border-orange-500 hover:shadow-orange-500/50">UI/UX Design (Canva)</span>
+                        <!-- Interest 2: Financial Markets -->
+                        <span class="tech-tag border-l-4 border-blue-500 hover:shadow-blue-500/50">Financial Markets</span>
+                        <!-- Interest 3: AI Automation -->
+                        <span class="tech-tag border-l-4 border-orange-500 hover:shadow-orange-500/50">AI Automation</span>
+                        <!-- Added another potential interest for visual balance -->
+                        <span class="tech-tag border-l-4 border-blue-500 hover:shadow-blue-500/50">Continuous Learning</span>
+                    </div>
+                    <p class="text-sm text-slate-500 pt-4">These activities reflect my commitment to collaborative success and personal growth beyond core academics.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 8. Contact Section (Now Section 8) -->
+        <section id="contact" class="py-20">
+            <h2 class="text-4xl font-bold mb-12 text-center anim-reveal">
+                Get <span class="text-blue-400">In Touch</span>
+            </h2>
+            <div class="max-w-xl mx-auto p-8 bg-slate-800 rounded-xl shadow-2xl anim-reveal">
+                <p class="text-lg text-center text-slate-300 mb-6">
+                    Have a project or opportunity? Feel free to reach out directly or connect on social media.
+                </p>
+                <!-- START: Updated Email Link -->
+                <div class="space-y-4 max-w-xs mx-auto">
+                    <!-- Email -->
+                    <!-- Used a single anchor tag with mailto: to make the whole row clickable -->
+                    <a href="mailto:yshirdhone28@gmail.com" title="Email Yash" class="flex items-center space-x-4 p-2 rounded-lg hover:bg-slate-700 transition duration-300 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail text-orange-400 group-hover:text-orange-300"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <span class="text-slate-200 group-hover:text-white">yshirdhone28@gmail.com</span>
+                    </a>
+                    <!-- Phone -->
+                    <a href="tel:+919158231595" title="Call Me" class="flex items-center space-x-4 p-2 rounded-lg hover:bg-slate-700 transition duration-300 group">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone text-blue-400 group-hover:text-blue-300"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6.71-6.71A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3a2 2 0 0 1 2 1.72 17.67 17.67 0 0 0 .84 2.76A2 2 0 0 1 8 8.44a17.67 17.67 0 0 0 2.76.84 2 2 0 0 1 1.72 2v3a2 2 0 0 1-1.72 1.72 17.67 17.67 0 0 0-.84 2.76 2 2 0 0 1-1.72 2z"/></svg>
+                        <span class="text-slate-200 group-hover:text-white">+91 9158231595</span>
+                    </a>
+                </div>
+                <!-- END: Updated Email Link -->
+                
+                <!-- Social Media Icons (Opening in new tab: target="_blank") -->
+                <div class="flex justify-center pt-8 space-x-8 border-t border-slate-700 mt-8">
+                    <!-- LinkedIn icon remains large and distinctive -->
+                    <a href="https://www.linkedin.com/in/yash-shirdhone-71041a24a/" target="_blank" title="LinkedIn Profile" class="text-slate-300 hover:text-blue-500 transition scale-125 hover:scale-[1.3] transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <!-- GitHub icon remains standard scale and simple hover -->
+                    <a href="https://github.com/Yash2328" target="_blank" title="GitHub Profile" class="text-slate-300 hover:text-orange-500 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.4-.75-3.48"/><path d="M21 12c0-4.42-3.58-8-8-8s-8 3.58-8 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-2.16-1.55-1.19-1.47-1.44-1.84-.2-.3-.02-.75.14-1.03.24-.4.81-1.02 1.63-1.02.99 0 1.77.5 2.22 1.24.42.79 1.12 1.13 1.96 1.13.76 0 1.51-.32 2.07-.94.05-.38.22-.67.43-.87-1.12-.4-2.31-.89-2.31-2.92 0-.69.25-1.3.69-1.88-.63-1.57.17-2.54 1.3-2.97.06-.03.14-.04.22-.04.8 0 1.54.34 2.05.85C14.71 8 15.65 8.16 16.6 8.16c.95 0 1.89-.16 2.76-.48.51-.51 1.25-.85 2.05-.85.08 0 .16.01.22.04 1.13.43 1.93 1.4 1.3 2.97.44.58.69 1.19.69 1.88 0 2.03-1.19 2.52-2.31 2.92.21.2.38.49.43.87.56.62 1.31.94 2.07.94 2.22 0 3.99-1.99 3.99-5.5 0-4.42-3.58-8-8-8s-8 3.58-8 8c0 3.51 2.9 5.57 6 5.5Z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/90 backdrop-blur-sm py-8 mt-12 border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-500">
+            &copy; 2025 Yash Shirdhone <span class="text-red-500">♥</span>. Designed with HTML, Tailwind CSS.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions and Animations -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Magnetic Button Effect
+        document.querySelectorAll('.magnetic-btn').forEach(button => {
+            button.addEventListener('mousemove', (e) => {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                gsap.to(button, {
+                    x: x * 0.2,
+                    y: y * 0.2,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+
+            button.addEventListener('mouseleave', () => {
+                gsap.to(button, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.5,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        });
+
+        // Message Box (Non-alert replacement)
+        function showMessage(message) {
+            const messageBox = document.getElementById('message-box');
+            const messageText = document.getElementById('message-text');
+
+            if (!messageBox) {
+                 console.log("Message:", message);
+                 return;
+            }
+
+            messageText.textContent = message;
+            messageBox.classList.remove('hidden');
+
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Scroll Reveal Animation (anim-reveal) - Generic Fade/Slide Up
+        document.querySelectorAll('.anim-reveal').forEach((element) => {
+            gsap.from(element, {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 90%", // Start animation when 90% of the viewport height is reached
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+
+        // Skill Bar Animation
+        function animateSkills() {
+            document.querySelectorAll('#skills .space-y-4 > div').forEach(skillDiv => {
+                const level = skillDiv.getAttribute('data-skill-level');
+                const bar = skillDiv.querySelector('.skill-bar');
+                const percentText = skillDiv.querySelector('.skill-percent');
+
+                // Animate the bar width
+                gsap.to(bar, {
+                    width: `${level}%`,
+                    duration: 1.5,
+                    ease: "power2.out"
+                });
+
+                // Animate the percentage text
+                gsap.to({ count: 0 }, {
+                    count: level,
+                    duration: 1.5,
+                    roundProps: 'count',
+                    onUpdate: function() {
+                        percentText.textContent = Math.round(this.targets()[0].count) + '%';
+                    },
+                    ease: "power2.out"
+                });
+            });
+        }
+
+        // Trigger skill bar animation on scroll
+        ScrollTrigger.create({
+            trigger: "#skills",
+            start: "top 70%", // Trigger when the skill section comes into view
+            onEnter: () => animateSkills(),
+            once: true // Only run once
+        });
+
+        
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu-drawer').classList.remove('hidden');
+        });
+
+        document.getElementById('close-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu-drawer').classList.add('hidden');
+        });
+
+        document.querySelectorAll('.mobile-nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.getElementById('mobile-menu-drawer').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
